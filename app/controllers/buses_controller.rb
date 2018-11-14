@@ -62,9 +62,9 @@ class BusesController < ApplicationController
   end
 
   def search_load
-    load = Bus.find_by(id:@bus)
+    bus_load = Bus.find_by(id:@bus)
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bus
