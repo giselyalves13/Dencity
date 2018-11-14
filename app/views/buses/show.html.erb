@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prefix:</strong>
+  <%= @bus.prefix %>
+</p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @bus.line %>
+</p>
+
+<p>
+  <strong>Load:</strong>
+  <%= @bus.load %>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= @bus.arrival_time %>
+</p>
+
+<p>
+  <strong>Py:</strong>
+  <%= @bus.py %>
+</p>
+
+<p>
+  <strong>Px:</strong>
+  <%= @bus.px %>
+</p>
+
+<%= link_to 'Edit', edit_bus_path(@bus) %> |
+<%= link_to 'Back', buses_path %>
