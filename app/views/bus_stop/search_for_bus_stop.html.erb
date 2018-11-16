@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Ônibus neste ponto</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Linha</th>
+      <th>Letreiro</th>
+      <th>Horário Previsto</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lines.each do |line| %>
+      <tr>
+        <td><%= line.c %></td>
+        <td><%= line.lt0 %></td> #TODO: Pegar pelo sl qual o sentido da linha lt0 ou lt1
+        <td><%= line.vs[0].t %></td>       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
