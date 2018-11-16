@@ -1,14 +1,14 @@
 class BusStopController < ApplicationController
   class << self
     include Resources::HttpClient
-    include ::SPTrans::HttpClientConfiguration
+    include ::Sptrans::HttpClientConfiguration
     #TODO: Criar rota para Resourses <ta dando erro não consegui resolver"
     def index
     end
 
     def search_for_bus_stop
       if sptrans_login
-        bus_stop_info_json = get("/Parada/Buscar?termosBusca=#{params[bus_stop_address]}") 
+        bus_stop_info_json = get("/Parada/Buscar?termosBusca=#{params[bus_stop_address]}")
         puts response
         return @lines = search_for_lines(bus_stop_info_json[cp]) #cp = codigo da parada
       else puts "erro com login na sptrans"
@@ -20,7 +20,7 @@ class BusStopController < ApplicationController
 
     def search_for_lines(bus_stop_code)
       if sptrans_login
-        lines_info_json = get("/Previsao/Parada?codigoParada=#{bus_stop_code}}") 
+        lines_info_json = get("/Previsao/Parada?codigoParada=#{bus_stop_code}}")
         return lines_info_json[l] # l = atributo de linhas no json
       else puts "erro com login na sptrans"
       end

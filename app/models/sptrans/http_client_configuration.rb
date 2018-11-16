@@ -1,14 +1,13 @@
-module SPTrans
+module Sptrans
   module HttpClientConfiguration
     private
 
     def base_url
-      # TODO
-      "http://api.olhovivo.sptrans.com.br/v2.1/"
+      Sptrans.configuration.base_url
     end
 
     def auth_header
-      { 'access-token' => #TOKEN }
+      { 'access-token' => Sptrans.configuration.token }
     end
 
     def basic_headers
