@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+.bg-green{
+    background-color: aquamarine;
+}
+
+h1{
+    color: darkslategrey;
+    font-weight: 1000;
+}
+p{
+    color: #011C03;
+}
+
+ /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+height: 500px;
+}
