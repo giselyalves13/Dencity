@@ -16,18 +16,22 @@
   </thead>
 
   <tbody>
-    <% @buses.each do |bus| %>
-      <tr>
-        <td><%= bus.prefix %></td>
-        <td><%= bus.line %></td>
-        <td><%= bus.load %></td>
-        <td><%= bus.arrival_time %></td>
-        <td><%= bus.py %></td>
-        <td><%= bus.px %></td>
-        <td><%= link_to 'Show', bus %></td>
-        <td><%= link_to 'Edit', edit_bus_path(bus) %></td>
-        <td><%= link_to 'Destroy', bus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if @buses%>
+      <% @buses.each do |bus| %>
+        <tr>
+          <td><%= bus.prefix %></td>
+          <td><%= bus.line %></td>
+          <td><%= bus.load %></td>
+          <td><%= bus.arrival_time %></td>
+          <td><%= bus.py %></td>
+          <td><%= bus.px %></td>
+          <td><%= link_to 'Show', bus %></td>
+          <td><%= link_to 'Edit', edit_bus_path(bus) %></td>
+          <td><%= link_to 'Destroy', bus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% else %>
+    puts man
     <% end %>
   </tbody>
 </table>

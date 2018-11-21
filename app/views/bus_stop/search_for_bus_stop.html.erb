@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Ônibus neste ponto</h1>
-
+<h3>Linhas que atendem este ponto</h3>
+<h1><%= @teste %></h1>
 <table>
   <thead>
     <tr>
@@ -12,13 +12,22 @@
   </thead>
 
   <tbody>
+    <% if @lines %>
     <% @lines.each do |line| %>
       <tr>
         <td><%= line.c %></td>
-        <td><%= line.lt0 %></td> #TODO: Pegar pelo sl qual o sentido da linha lt0 ou lt1
-        <td><%= line.vs[0].t %></td>       
+        <td><%= line.lt0 %></td>
+        <td><%= line.vs[0].t %></td>
+      </tr>
+      <tr>
+        <td><%= line.c %></td>
+        <td><%= line.lt1 %></td>
+        <td><%= line.vs[0].t %></td>
       </tr>
     <% end %>
+    <%else%>
+    puts man
+    <%end%>
   </tbody>
 </table>
 

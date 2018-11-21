@@ -1,12 +1,28 @@
-<%= form_tag bus_stop_search_for_bus_stop_path do %>
-    <p> Digite o endereço do ponto de onibus </p>
-    <%= text_field_tag :bus_stop_address %>
-    <%= submit_tag %>
+<h1><%= @teste %>, buceta</h1>
+<div class="container">
+  <%= form_tag bus_stop_search_for_bus_stop_path({class: 'form-group'}) do %>
+  <div class="row">
+    <div class="col-xs-12">
+      <p> Digite o endereço do ponto de ônibus: </p>
+    </div>
+  <div class="row">
+    <div class="col-xs-9">
+      <%= text_field_tag :bus_stop_address, "", placeholder: "Endereço", class: "form-control"%>
+    </div>
+    <div class="col-xs-3">
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        Buscar <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </div>
+  </div>
+  </div>
+    <% end %>
  <% end %>
+  </div>
+</div>
 
- <div id="map">
- </div>
- 
+<div id="map", style="height: 500px;">
+</div>
 
 
-  
+
+

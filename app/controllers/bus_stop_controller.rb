@@ -4,6 +4,7 @@ class BusStopController < ApplicationController
     include ::Sptrans::HttpClientConfiguration
     #TODO: Criar rota para Resourses <ta dando erro não consegui resolver"
     def index
+      @teste = "oi"
     end
 
     def search_for_bus_stop
@@ -13,7 +14,7 @@ class BusStopController < ApplicationController
         puts response
         @lines = search_for_lines(bus_stop_info_json[cp]) #cp = codigo da parada
         render bus_stop_search_for_bus_stop_path
-      else puts "erro com login na sptrans"
+      else @lines[0] = "erro com login na sptrans"
       end
       # TODO: usar metodo PARADAS/BUSCAR na sptrans enviando lat e long ou nome e numero da rua
       # Retornar para view no mesmo controller
@@ -33,7 +34,12 @@ class BusStopController < ApplicationController
       puts "METODO 2"
       token ="9cf92b800603de7a266f4400062d865a67ee64eeb4b968b01d608ffa7806b092"
       response = post("/Login/Autenticar?token=#{token}", payload: {}.to_json)
+      puts '********************************************'
       puts response
+      puts '********************************************'
     end
+
+    helper_method :search_for_bus_stop
+
   end
 end
