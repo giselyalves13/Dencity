@@ -9,14 +9,11 @@ class BusStopsController < ApplicationController
     def search_for_bus_stop
       puts "METODO 1"
       termosBusca = params[:bus_stop_address]
-      token ="9cf92b800603de7a266f4400062d865a67ee64eeb4b968b01d608ffa7806b092"
       puts termosBusca
       if sptrans_login
         # bus_stop_info_json = get(url: "v2.1/Parada/Buscar", params: {token: token})
-
-
-        bus_stop_info_json = get(url: "v2.1/Parada/Buscar", params: { termosBusca: termosBusca, token: token })
-        puts bus_stop_info_json
+        bus_stop_info_json = get(url: "v2.1/Parada/Buscar", params: { termosBusca: termosBusca })
+        puts response
         @lines = search_for_lines(bus_stop_info_json[cp]) #cp = codigo da parada
         render bus_stops_search_for_bus_stop_path
       else @lines[0] = "erro com login na sptrans"
