@@ -1,13 +1,13 @@
-<h1><%= @teste %>, buceta</h1>
+<h1><%= @teste %></h1>
 <div class="container">
-  <%= form_tag bus_stop_search_for_bus_stop_path({class: 'form-group'}) do %>
+  <%= form_tag bus_stops_search_for_bus_stop_path do %>
   <div class="row">
     <div class="col-xs-12">
       <p> Digite o endereço do ponto de ônibus: </p>
     </div>
   <div class="row">
     <div class="col-xs-9">
-      <%= text_field_tag :bus_stop_address, "", placeholder: "Endereço", class: "form-control"%>
+      <%= text_field_tag 'bus_stop_address', "", placeholder: "Endereço", class: "form-control" %>
     </div>
     <div class="col-xs-3">
       <%= button_tag(type: 'submit', class: "btn btn-primary") do %>

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   resources :buses
   resources :sptrans
-  get 'bus_stop/search_for_bus_stop', to: 'bus_stop_controller#search_for_bus_stop'
-  post 'bus_stop/search_for_bus_stop'
-  get 'bus_stop/show'
-  post 'bus_stop/show'
-  get 'bus_stop/index'
-  root 'bus_stop#index'
+  get 'bus_stops/search_for_bus_stop', to: 'bus_stops_controller#search_for_bus_stop'
+  post 'bus_stops/search_for_bus_stop', to: 'bus_stops#search_for_bus_stop'
+  get 'bus_stops/show'
+  post 'bus_stops/show'
+  get 'bus_stops/index'
+  root 'bus_stops#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
