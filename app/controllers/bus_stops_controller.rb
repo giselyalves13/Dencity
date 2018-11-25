@@ -10,9 +10,11 @@ class BusStopsController < ApplicationController
       puts "METODO 1"
       termosBusca = params[:bus_stop_address]
       puts termosBusca
-      if sptrans_login
+      cookie = sptrans_login
+      if !cookie.nil?
         # bus_stop_info_json = get(url: "v2.1/Parada/Buscar", params: {token: token})
-        bus_stop_info_json = get(url: "v2.1/Parada/Buscar", params: { termosBusca: termosBusca })
+        puts cookie.to_json['set-cookie']
+        bus_stop_info_json = get(url: "v2.1/Parada/Buscar", params: { termosBusca: termosBusca, apiCredentials: cookie })
         puts response
         @lines = search_for_lines(bus_stop_info_json[cp]) #cp = codigo da parada
         render bus_stops_search_for_bus_stop_path
@@ -41,8 +43,10 @@ class BusStopsController < ApplicationController
       response = post(url: "v2.1/Login/Autenticar", params: {token: token})
       puts '********************************************'
       puts JSON.parse response.body
+      puts response.headers.to_json
+      puts response.status.to_s
       puts '********************************************'
-      JSON.parse response.body
+      JSON.parse response.headers.to_json
     end
 
     # helper_method :search_for_bus_stop
