@@ -12,24 +12,4 @@
   </thead>
 
   <tbody>
-    <% if @lines %>
-    <% @lines.each do |line| %>
-      <tr>
-        <td><%= line.c %></td>
-        <td><%= line.lt0 %></td>
-        <td><%= line.vs[0].t %></td>
-      </tr>
-      <tr>
-        <td><%= line.c %></td>
-        <td><%= line.lt1 %></td>
-        <td><%= line.vs[0].t %></td>
-      </tr>
-    <% end %>
-    <%else%>
-    puts man
-    <%end%>
-  </tbody>
-</table>
-
-<br>
-
+    <%= @lines %>
