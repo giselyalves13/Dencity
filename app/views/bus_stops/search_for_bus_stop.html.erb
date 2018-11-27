@@ -1,15 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <h3>Linhas que atendem este ponto</h3>
-<h1><%= @teste %></h1>
+Momento da consulta: <%= @lines['hr']%>
 <table>
   <thead>
     <tr>
-      <th>Linha</th>
+      <th style="padding:0 15px 0 15px;">Linha</th>
       <th>Letreiro</th>
       <th>Horário Previsto</th>
     </tr>
   </thead>
 
   <tbody>
-    <%= @lines %>
+    <% @lines['p']['l'].each do |b| %>
+      <tr>
+        <td><%= b['c'] %></td>
+        <td><%= b['lt0'] %></td>
+        <% if b['qv'] >= 1 %>
+          <td><%= b['vs'][0]['t'] %></td>
+        <% else %>
+          Nenhum ônibus circulando.
+        <% end %>
+      </tr>
+
+      <tr>
+        <td><%= b['c'] %></td>
+        <td><%= b['lt1'] %></td>
+        <% if b['qv'] >= 1 %>
+          <td><%= b['vs'][0]['t'] %></td>
+        <% else %>
+          Nenhum ônibus circulando.
+        <% end %>
+      </tr>
+      <% end %>
+  </tbody>
