@@ -15,11 +15,13 @@
 
     </head>
 
-  <body class="bg-green">
+  <body style="background: #A9BCF5;">
     <div class="container">
       <div class="row">
-      <div class="col-xs-2"> <br><%= image_tag("logo.png", alt: "Logo", width:50) %></div>
-      <div class="col-xs-10"> <h1>Dencity</h1> </div>
+      <div class="col-xs-2"><br /><%= link_to root_path do %>
+                                    <%= image_tag("logoDencity.png", alt: "Logo", width:50) %></div>
+                                  <% end %>
+      <div class="col-xs-10"> <h1><%= link_to('Dencity', root_path, {style: 'color:black;text-decoration: none;'}) %></h1> </div>
       </div>
       <%= yield %>
     </div>

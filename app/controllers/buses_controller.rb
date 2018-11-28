@@ -1,5 +1,5 @@
 class BusesController < ApplicationController
-  before_action :set_bus, only: [:show, :edit, :update, :destroy]
+  # before_action :set_bus, only: [:show, :edit, :update, :destroy]
 
   # GET /buses
   # GET /buses.json
@@ -10,6 +10,13 @@ class BusesController < ApplicationController
   # GET /buses/1
   # GET /buses/1.json
   def show
+    id = params[:id]
+    # TODO
+    # bater no dencity_bus_endpoint para pegar dados
+    # criar os http client e http client configuration etc
+    # plotar localização do bus no ônibus
+    # exibir lotação
+    @bus = nil
   end
 
   # GET /buses/new

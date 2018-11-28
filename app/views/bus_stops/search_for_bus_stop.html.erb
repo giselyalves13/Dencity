@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h3>Linhas que atendem este ponto</h3>
-Momento da consulta: <%= @lines['hr']%>
+<h6>Momento da consulta: <b><%= @lines['hr']%></b></h6>
 <table>
   <thead>
     <tr>
@@ -12,24 +12,27 @@ Momento da consulta: <%= @lines['hr']%>
   </thead>
 
   <tbody>
+
     <% @lines['p']['l'].each do |b| %>
       <tr>
         <td><%= b['c'] %></td>
-        <td><%= b['lt0'] %></td>
         <% if b['qv'] >= 1 %>
+          <td><%= link_to(b['lt0'], bus_path(Integer(b['vs'][0]['p']))) %></td>
           <td><%= b['vs'][0]['t'] %></td>
         <% else %>
-          Nenhum ônibus circulando.
+          <td><%= b['lt0'] %></td>
+          <td>Nenhum ônibus circulando.</td>
         <% end %>
       </tr>
 
       <tr>
         <td><%= b['c'] %></td>
-        <td><%= b['lt1'] %></td>
         <% if b['qv'] >= 1 %>
+          <td><%= link_to(b['lt1'], bus_path(Integer(b['vs'][0]['p']))) %></td>
           <td><%= b['vs'][0]['t'] %></td>
         <% else %>
-          Nenhum ônibus circulando.
+          <td><%= b['lt1'] %></td>
+          <td>Nenhum ônibus circulando.</td>
         <% end %>
       </tr>
       <% end %>
