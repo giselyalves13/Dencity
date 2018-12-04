@@ -1,19 +1,35 @@
+require 'net/http'
+require 'cgi'
+
 class BusesController < ApplicationController
-  # before_action :set_bus, only: [:show, :edit, :update, :destroy]
+  include Resources::HttpClient
+  include ::Bus::HttpClientConfiguration
 
   # GET /buses
   # GET /buses.json
   def index
-    @buses = Bus.all
+    # @buses = Bus.all
   end
 
   # GET /buses/1
   # GET /buses/1.json
   def show
     id = params[:id]
+    cl = params[:cl] # código identificador único da linha
+    # get info from endpoint
+    @bus_info = get(url: "buses", params: { id: id })
+    @bus_info = JSON.parse @bus_info.body
+    @bus_info = @bus_info.first
+
+    #get info from sptrans
+    if @bus_info
+      @bus_sptrans = BusStopsController.search_for_line(@bus_info['line'], id)
+    else
+      @bus_sptrans = 404
+    end
     # TODO
     # bater no dencity_bus_endpoint para pegar dados
-    # criar os http client e http client configuration etc
+    # criar os http client e http client configuration
     # plotar localização do bus no ônibus
     # exibir lotação
     @bus = nil

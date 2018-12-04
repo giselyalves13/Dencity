@@ -1,7 +1,50 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4><%= @bus_info['line'].to_s %> - Nome</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <b>Prefixo do ônibus:</b>
+    </div>
+    <div class="col-xs-6">
+      <%= @bus_info['prefix'] %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <b>Lotação:</b>
+    </div>
+    <div class="col-xs-6">
+      <%= image_tag("passenger.png", alt: "Logo", width:25) %>
+      <%= @bus_info['load'] %>
+    </div>
+  </div>
+</div>
+Localização do ônibus:
+<div id="map" style="width:100%;height: 400px;"></div>
+<script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 10, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+
+
+
 Informações do ônibus
 Nome + número
 Prefixo do ônibus
 Lotação
 Pin no Mapa
+
+<%= @bus_info %>

@@ -17,7 +17,7 @@
       <tr>
         <td><%= b['c'] %></td>
         <% if b['qv'] >= 1 %>
-          <td><%= link_to(b['lt0'], bus_path(Integer(b['vs'][0]['p']))) %></td>
+          <td><%= link_to(b['lt0'], bus_path(Integer(b['vs'][0]['p']), cl: Integer(b['cl'])), method: :get) %></td>
           <td><%= b['vs'][0]['t'] %></td>
         <% else %>
           <td><%= b['lt0'] %></td>
