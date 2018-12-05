@@ -19,17 +19,11 @@ class BusesController < ApplicationController
     # get info from endpoint
     @bus_info = get(url: "buses", params: { id: id })
     @bus_info = JSON.parse @bus_info.body
-    @bus_info = @bus_info.first
+    @bus_info = @bus_info
 
     #get info from sptrans
-    if @bus_info
-      @bus_sptrans = BusStopsController.search_for_line(@bus_info['line'], id)
-    else
-      @bus_sptrans = 404
-    end
+    @bus_sptrans = BusStopsController.search_for_line(cl, id)
     # TODO
-    # bater no dencity_bus_endpoint para pegar dados
-    # criar os http client e http client configuration
     # plotar localização do bus no ônibus
     # exibir lotação
     @bus = nil

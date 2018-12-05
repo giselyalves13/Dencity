@@ -22,12 +22,12 @@ class BusStopsController < ApplicationController
       termosBusca = line
       bus_info = get(url: "", params: { termosBusca: termosBusca, api: "LINHAS" })
       buses = JSON.parse bus_info.body
-      buses['vs'].each do |bus|
-        if bus['p'] == prefix
-          return bus
-      end
-    end
-    return 404
+      # buses['vs'].each do |bus|
+        # if bus['p'] == prefix
+          # return bus
+      # end
+    # end
+    return buses
     end
   end
 end
