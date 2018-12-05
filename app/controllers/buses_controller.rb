@@ -16,6 +16,7 @@ class BusesController < ApplicationController
   def show
     id = params[:id]
     cl = params[:cl] # código identificador único da linha
+    @name = params[:name]
     # get info from endpoint
     @bus_info = get(url: "buses", params: { id: id })
     @bus_info = JSON.parse @bus_info.body

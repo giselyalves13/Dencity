@@ -19,7 +19,7 @@
         <tr>
           <td><%= b['c'] %></td>
           <% if b['qv'] >= 1 %>
-            <td><%= link_to(b['lt0'], bus_path(Integer(b['vs'][0]['p']), cl: Integer(b['cl']), px: b['vs'][0]['px'], py: b['vs'][0]['py']), method: :get) %></td>
+            <td><%= link_to(b['lt0'], bus_path(Integer(b['vs'][0]['p']), cl: Integer(b['cl']), px: b['vs'][0]['px'], py: b['vs'][0]['py'], name: b['lt0']), method: :get) %></td>
             <td><%= b['vs'][0]['t'] %></td>
           <% else %>
             <td><%= b['lt0'] %></td>
@@ -30,7 +30,7 @@
         <tr>
           <td><%= b['c'] %></td>
           <% if b['qv'] >= 1 %>
-            <td><%= link_to(b['lt1'], bus_path(Integer(b['vs'][0]['p']))) %></td>
+            <td><%= link_to(b['lt1'], bus_path(Integer(b['vs'][0]['p']), cl: Integer(b['cl']), px: b['vs'][0]['px'], py: b['vs'][0]['py'], name: b['lt1']), method: :get) %></td>
             <td><%= b['vs'][0]['t'] %></td>
           <% else %>
             <td><%= b['lt1'] %></td>
